@@ -70,7 +70,7 @@ SUFFIXES = .rc .lo
 
 gpg_error_res = versioninfo.lo
 no_undefined = -no-undefined
-export_symbols = -export-symbols gpg-error.def
+export_symbols = #-export-symbols gpg-error.def
 
 install-def-file: gpg-error.def
 	$(INSTALL) gpg-error.def $(DESTDIR)$(libdir)/gpg-error.def
