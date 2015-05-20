@@ -9,12 +9,12 @@
    modify it under the terms of the GNU Lesser General Public License
    as published by the Free Software Foundation; either version 2.1 of
    the License, or (at your option) any later version.
- 
+
    libgpg-error is distributed in the hope that it will be useful, but
    WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    Lesser General Public License for more details.
- 
+
    You should have received a copy of the GNU Lesser General Public
    License along with libgpg-error; if not, write to the Free
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -103,7 +103,7 @@ static const char msgstr[] =
   gettext_noop ("Incomplete line") "\0"
   gettext_noop ("Invalid response") "\0"
   gettext_noop ("No agent running") "\0"
-  gettext_noop ("agent error") "\0"
+  gettext_noop ("Agent error") "\0"
   gettext_noop ("Invalid data") "\0"
   gettext_noop ("Unspecific Assuan server fault") "\0"
   gettext_noop ("General Assuan error") "\0"
@@ -211,6 +211,18 @@ static const char msgstr[] =
   gettext_noop ("Limit reached") "\0"
   gettext_noop ("Not initialized") "\0"
   gettext_noop ("Missing issuer certificate") "\0"
+  gettext_noop ("No keyserver available") "\0"
+  gettext_noop ("Invalid elliptic curve") "\0"
+  gettext_noop ("Unknown elliptic curve") "\0"
+  gettext_noop ("Duplicated key") "\0"
+  gettext_noop ("Ambiguous result") "\0"
+  gettext_noop ("No crypto context") "\0"
+  gettext_noop ("Wrong crypto context") "\0"
+  gettext_noop ("Bad crypto context") "\0"
+  gettext_noop ("Conflict in the crypto context") "\0"
+  gettext_noop ("Broken public key") "\0"
+  gettext_noop ("Broken secret key") "\0"
+  gettext_noop ("Invalid MAC algorithm") "\0"
   gettext_noop ("Operation fully cancelled") "\0"
   gettext_noop ("Operation not yet finished") "\0"
   gettext_noop ("Buffer too short") "\0"
@@ -227,6 +239,39 @@ static const char msgstr[] =
   gettext_noop ("Bad hexadecimal character in S-expression") "\0"
   gettext_noop ("Odd hexadecimal numbers in S-expression") "\0"
   gettext_noop ("Bad octal character in S-expression") "\0"
+  gettext_noop ("Legacy key") "\0"
+  gettext_noop ("Request too short") "\0"
+  gettext_noop ("Request too long") "\0"
+  gettext_noop ("Object is in termination state") "\0"
+  gettext_noop ("No certificate chain") "\0"
+  gettext_noop ("Certificate is too large") "\0"
+  gettext_noop ("Invalid record") "\0"
+  gettext_noop ("The MAC does not verify") "\0"
+  gettext_noop ("Unexpected message") "\0"
+  gettext_noop ("Compression or decompression failed") "\0"
+  gettext_noop ("A counter would wrap") "\0"
+  gettext_noop ("Fatal alert message received") "\0"
+  gettext_noop ("No cipher algorithm") "\0"
+  gettext_noop ("Missing client certificate") "\0"
+  gettext_noop ("Close notification received") "\0"
+  gettext_noop ("Ticket expired") "\0"
+  gettext_noop ("Bad ticket") "\0"
+  gettext_noop ("Unknown identity") "\0"
+  gettext_noop ("Bad certificate message in handshake") "\0"
+  gettext_noop ("Bad certificate request message in handshake") "\0"
+  gettext_noop ("Bad certificate verify message in handshake") "\0"
+  gettext_noop ("Bad change cipher messsage in handshake") "\0"
+  gettext_noop ("Bad client hello message in handshake") "\0"
+  gettext_noop ("Bad server hello message in handshake") "\0"
+  gettext_noop ("Bad server hello done message in hanshake") "\0"
+  gettext_noop ("Bad finished message in handshake") "\0"
+  gettext_noop ("Bad server key exchange message in handshake") "\0"
+  gettext_noop ("Bad client key exchange message in handshake") "\0"
+  gettext_noop ("Bogus string") "\0"
+  gettext_noop ("Forbidden") "\0"
+  gettext_noop ("Key disabled") "\0"
+  gettext_noop ("Not possible with a card based key") "\0"
+  gettext_noop ("Invalid lock object") "\0"
   gettext_noop ("General IPC error") "\0"
   gettext_noop ("IPC accept call failed") "\0"
   gettext_noop ("IPC connect call failed") "\0"
@@ -251,6 +296,87 @@ static const char msgstr[] =
   gettext_noop ("No output source for IPC") "\0"
   gettext_noop ("IPC parameter error") "\0"
   gettext_noop ("Unknown IPC inquire") "\0"
+  gettext_noop ("General LDAP error") "\0"
+  gettext_noop ("General LDAP attribute error") "\0"
+  gettext_noop ("General LDAP name error") "\0"
+  gettext_noop ("General LDAP security error") "\0"
+  gettext_noop ("General LDAP service error") "\0"
+  gettext_noop ("General LDAP update error") "\0"
+  gettext_noop ("Experimental LDAP error code") "\0"
+  gettext_noop ("Private LDAP error code") "\0"
+  gettext_noop ("Other general LDAP error") "\0"
+  gettext_noop ("LDAP connecting failed (X)") "\0"
+  gettext_noop ("LDAP referral limit exceeded") "\0"
+  gettext_noop ("LDAP client loop") "\0"
+  gettext_noop ("No LDAP results returned") "\0"
+  gettext_noop ("LDAP control not found") "\0"
+  gettext_noop ("Not supported by LDAP") "\0"
+  gettext_noop ("LDAP connect error") "\0"
+  gettext_noop ("Out of memory in LDAP") "\0"
+  gettext_noop ("Bad parameter to an LDAP routine") "\0"
+  gettext_noop ("User cancelled LDAP operation") "\0"
+  gettext_noop ("Bad LDAP search filter") "\0"
+  gettext_noop ("Unknown LDAP authentication method") "\0"
+  gettext_noop ("Timeout in LDAP") "\0"
+  gettext_noop ("LDAP decoding error") "\0"
+  gettext_noop ("LDAP encoding error") "\0"
+  gettext_noop ("LDAP local error") "\0"
+  gettext_noop ("Cannot contact LDAP server") "\0"
+  gettext_noop ("LDAP success") "\0"
+  gettext_noop ("LDAP operations error") "\0"
+  gettext_noop ("LDAP protocol error") "\0"
+  gettext_noop ("Time limit exceeded in LDAP") "\0"
+  gettext_noop ("Size limit exceeded in LDAP") "\0"
+  gettext_noop ("LDAP compare false") "\0"
+  gettext_noop ("LDAP compare true") "\0"
+  gettext_noop ("LDAP authentication method not supported") "\0"
+  gettext_noop ("Strong(er) LDAP authentication required") "\0"
+  gettext_noop ("Partial LDAP results+referral received") "\0"
+  gettext_noop ("LDAP referral") "\0"
+  gettext_noop ("Administrative LDAP limit exceeded") "\0"
+  gettext_noop ("Critical LDAP extension is unavailable") "\0"
+  gettext_noop ("Confidentiality required by LDAP") "\0"
+  gettext_noop ("LDAP SASL bind in progress") "\0"
+  gettext_noop ("No such LDAP attribute") "\0"
+  gettext_noop ("Undefined LDAP attribute type") "\0"
+  gettext_noop ("Inappropriate matching in LDAP") "\0"
+  gettext_noop ("Constraint violation in LDAP") "\0"
+  gettext_noop ("LDAP type or value exists") "\0"
+  gettext_noop ("Invalid syntax in LDAP") "\0"
+  gettext_noop ("No such LDAP object") "\0"
+  gettext_noop ("LDAP alias problem") "\0"
+  gettext_noop ("Invalid DN syntax in LDAP") "\0"
+  gettext_noop ("LDAP entry is a leaf") "\0"
+  gettext_noop ("LDAP alias dereferencing problem") "\0"
+  gettext_noop ("LDAP proxy authorization failure (X)") "\0"
+  gettext_noop ("Inappropriate LDAP authentication") "\0"
+  gettext_noop ("Invalid LDAP credentials") "\0"
+  gettext_noop ("Insufficient access for LDAP") "\0"
+  gettext_noop ("LDAP server is busy") "\0"
+  gettext_noop ("LDAP server is unavailable") "\0"
+  gettext_noop ("LDAP server is unwilling to perform") "\0"
+  gettext_noop ("Loop detected by LDAP") "\0"
+  gettext_noop ("LDAP naming violation") "\0"
+  gettext_noop ("LDAP object class violation") "\0"
+  gettext_noop ("LDAP operation not allowed on non-leaf") "\0"
+  gettext_noop ("LDAP operation not allowed on RDN") "\0"
+  gettext_noop ("Already exists (LDAP)") "\0"
+  gettext_noop ("Cannot modify LDAP object class") "\0"
+  gettext_noop ("LDAP results too large") "\0"
+  gettext_noop ("LDAP operation affects multiple DSAs") "\0"
+  gettext_noop ("Virtual LDAP list view error") "\0"
+  gettext_noop ("Other LDAP error") "\0"
+  gettext_noop ("Resources exhausted in LCUP") "\0"
+  gettext_noop ("Security violation in LCUP") "\0"
+  gettext_noop ("Invalid data in LCUP") "\0"
+  gettext_noop ("Unsupported scheme in LCUP") "\0"
+  gettext_noop ("Reload required in LCUP") "\0"
+  gettext_noop ("LDAP cancelled") "\0"
+  gettext_noop ("No LDAP operation to cancel") "\0"
+  gettext_noop ("Too late to cancel LDAP") "\0"
+  gettext_noop ("Cannot cancel LDAP") "\0"
+  gettext_noop ("LDAP assertion failed") "\0"
+  gettext_noop ("Proxied authorization denied by LDAP") "\0"
   gettext_noop ("User defined error code 1") "\0"
   gettext_noop ("User defined error code 2") "\0"
   gettext_noop ("User defined error code 3") "\0"
@@ -461,76 +587,212 @@ static const int msgidx[] =
     3158,
     3174,
     3201,
-    3227,
-    3254,
-    3271,
-    3312,
-    3344,
-    3382,
+    3224,
+    3247,
+    3270,
+    3285,
+    3302,
+    3320,
+    3341,
+    3360,
+    3391,
     3409,
-    3439,
-    3469,
-    3497,
-    3534,
-    3558,
-    3606,
-    3648,
-    3688,
-    3724,
-    3742,
-    3765,
-    3789,
-    3810,
-    3838,
-    3868,
+    3427,
+    3449,
+    3475,
+    3502,
+    3519,
+    3560,
+    3592,
+    3630,
+    3657,
+    3687,
+    3717,
+    3745,
+    3782,
+    3806,
+    3854,
     3896,
-    3916,
-    3940,
-    3967,
-    3985,
-    4003,
-    4031,
-    4046,
-    4062,
-    4090,
-    4113,
-    4133,
-    4150,
-    4178,
-    4202,
-    4227,
-    4247,
-    4267,
-    4293,
-    4319,
-    4345,
-    4371,
-    4397,
-    4423,
-    4449,
-    4475,
-    4501,
-    4528,
-    4555,
-    4582,
-    4609,
-    4636,
-    4663,
-    4690,
-    4713,
-    4734,
-    4746
+    3936,
+    3972,
+    3983,
+    4001,
+    4018,
+    4049,
+    4070,
+    4095,
+    4110,
+    4134,
+    4153,
+    4189,
+    4210,
+    4239,
+    4259,
+    4286,
+    4314,
+    4329,
+    4340,
+    4357,
+    4394,
+    4439,
+    4483,
+    4523,
+    4561,
+    4599,
+    4641,
+    4675,
+    4720,
+    4765,
+    4778,
+    4788,
+    4801,
+    4836,
+    4856,
+    4874,
+    4897,
+    4921,
+    4942,
+    4970,
+    5000,
+    5028,
+    5048,
+    5072,
+    5099,
+    5117,
+    5135,
+    5163,
+    5178,
+    5194,
+    5222,
+    5245,
+    5265,
+    5282,
+    5310,
+    5334,
+    5359,
+    5379,
+    5399,
+    5418,
+    5447,
+    5471,
+    5499,
+    5526,
+    5552,
+    5581,
+    5605,
+    5630,
+    5657,
+    5686,
+    5703,
+    5728,
+    5751,
+    5773,
+    5792,
+    5814,
+    5847,
+    5877,
+    5900,
+    5935,
+    5951,
+    5971,
+    5991,
+    6008,
+    6035,
+    6048,
+    6070,
+    6090,
+    6118,
+    6146,
+    6165,
+    6183,
+    6224,
+    6264,
+    6303,
+    6317,
+    6352,
+    6391,
+    6424,
+    6451,
+    6474,
+    6504,
+    6535,
+    6564,
+    6590,
+    6613,
+    6633,
+    6652,
+    6678,
+    6699,
+    6732,
+    6769,
+    6803,
+    6828,
+    6857,
+    6877,
+    6904,
+    6940,
+    6962,
+    6984,
+    7012,
+    7051,
+    7085,
+    7107,
+    7139,
+    7162,
+    7199,
+    7228,
+    7245,
+    7273,
+    7300,
+    7321,
+    7348,
+    7372,
+    7387,
+    7415,
+    7439,
+    7458,
+    7480,
+    7517,
+    7543,
+    7569,
+    7595,
+    7621,
+    7647,
+    7673,
+    7699,
+    7725,
+    7751,
+    7778,
+    7805,
+    7832,
+    7859,
+    7886,
+    7913,
+    7940,
+    7963,
+    7984,
+    7996
   };
 
-static inline int
+static GPG_ERR_INLINE int
 msgidxof (int code)
 {
   return (0 ? 0
-  : ((code >= 0) && (code <= 185)) ? (code - 0)
-  : ((code >= 198) && (code <= 213)) ? (code - 12)
-  : ((code >= 257) && (code <= 271)) ? (code - 55)
-  : ((code >= 273) && (code <= 281)) ? (code - 56)
-  : ((code >= 1024) && (code <= 1039)) ? (code - 798)
-  : ((code >= 16381) && (code <= 16383)) ? (code - 16139)
-  : 16384 - 16139);
+  : ((code >= 0) && (code <= 213)) ? (code - 0)
+  : ((code >= 222) && (code <= 254)) ? (code - 8)
+  : ((code >= 257) && (code <= 271)) ? (code - 10)
+  : ((code >= 273) && (code <= 281)) ? (code - 11)
+  : ((code >= 721) && (code <= 729)) ? (code - 450)
+  : ((code >= 750) && (code <= 752)) ? (code - 470)
+  : ((code >= 754) && (code <= 782)) ? (code - 471)
+  : ((code >= 784) && (code <= 789)) ? (code - 472)
+  : ((code >= 800) && (code <= 804)) ? (code - 482)
+  : ((code >= 815) && (code <= 822)) ? (code - 492)
+  : ((code >= 832) && (code <= 839)) ? (code - 501)
+  : ((code >= 844) && (code <= 844)) ? (code - 505)
+  : ((code >= 848) && (code <= 848)) ? (code - 508)
+  : ((code >= 881) && (code <= 891)) ? (code - 540)
+  : ((code >= 1024) && (code <= 1039)) ? (code - 672)
+  : ((code >= 16381) && (code <= 16383)) ? (code - 16013)
+  : 16384 - 16013);
 }

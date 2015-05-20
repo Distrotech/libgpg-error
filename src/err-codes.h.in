@@ -8,12 +8,12 @@
    modify it under the terms of the GNU Lesser General Public License
    as published by the Free Software Foundation; either version 2.1 of
    the License, or (at your option) any later version.
- 
+
    libgpg-error is distributed in the hope that it will be useful, but
    WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
    Lesser General Public License for more details.
- 
+
    You should have received a copy of the GNU Lesser General Public
    License along with libgpg-error; if not, write to the Free
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
@@ -107,7 +107,7 @@
 75	GPG_ERR_INCOMPLETE_LINE		Incomplete line
 76	GPG_ERR_INV_RESPONSE		Invalid response
 77	GPG_ERR_NO_AGENT		No agent running
-78	GPG_ERR_AGENT			agent error
+78	GPG_ERR_AGENT			Agent error
 79	GPG_ERR_INV_DATA		Invalid data
 80	GPG_ERR_ASSUAN_SERVER_FAULT	Unspecific Assuan server fault
 81	GPG_ERR_ASSUAN			General Assuan error
@@ -159,10 +159,10 @@
 127	GPG_ERR_WRONG_BLOB_TYPE		Wrong blob type
 128	GPG_ERR_MISSING_VALUE		Missing value
 129	GPG_ERR_HARDWARE		Hardware problem
-130	GPG_ERR_PIN_BLOCKED		PIN blocked     
-131	GPG_ERR_USE_CONDITIONS		Conditions of use not satisfied 
+130	GPG_ERR_PIN_BLOCKED		PIN blocked
+131	GPG_ERR_USE_CONDITIONS		Conditions of use not satisfied
 132	GPG_ERR_PIN_NOT_SYNCED		PINs are not synced
-133	GPG_ERR_INV_CRL			Invalid CRL     
+133	GPG_ERR_INV_CRL			Invalid CRL
 134	GPG_ERR_BAD_BER			BER error
 135	GPG_ERR_INV_BER			Invalid BER
 136	GPG_ERR_ELEMENT_NOT_FOUND	Element not found
@@ -215,8 +215,18 @@
 183	GPG_ERR_LIMIT_REACHED		Limit reached
 184	GPG_ERR_NOT_INITIALIZED		Not initialized
 185	GPG_ERR_MISSING_ISSUER_CERT	Missing issuer certificate
-# 186 to 197 are free to be used.
-
+186	GPG_ERR_NO_KEYSERVER		No keyserver available
+187	GPG_ERR_INV_CURVE		Invalid elliptic curve
+188	GPG_ERR_UNKNOWN_CURVE		Unknown elliptic curve
+189	GPG_ERR_DUP_KEY			Duplicated key
+190	GPG_ERR_AMBIGUOUS		Ambiguous result
+191	GPG_ERR_NO_CRYPT_CTX		No crypto context
+192	GPG_ERR_WRONG_CRYPT_CTX		Wrong crypto context
+193	GPG_ERR_BAD_CRYPT_CTX		Bad crypto context
+194	GPG_ERR_CRYPT_CTX_CONFLICT	Conflict in the crypto context
+195	GPG_ERR_BROKEN_PUBKEY		Broken public key
+196	GPG_ERR_BROKEN_SECKEY		Broken secret key
+197	GPG_ERR_MAC_ALGO		Invalid MAC algorithm
 198	GPG_ERR_FULLY_CANCELED		Operation fully cancelled
 199	GPG_ERR_UNFINISHED		Operation not yet finished
 200	GPG_ERR_BUFFER_TOO_SHORT	Buffer too short
@@ -237,7 +247,43 @@
 212	GPG_ERR_SEXP_ODD_HEX_NUMBERS	Odd hexadecimal numbers in S-expression
 213	GPG_ERR_SEXP_BAD_OCT_CHAR	Bad octal character in S-expression
 
-# 214 to 254 are free to be used. 255 and 256 are RFU.
+# 214 to 221 are free to be used.
+
+222	GPG_ERR_LEGACY_KEY		Legacy key
+223	GPG_ERR_REQUEST_TOO_SHORT	Request too short
+224	GPG_ERR_REQUEST_TOO_LONG	Request too long
+225	GPG_ERR_OBJ_TERM_STATE		Object is in termination state
+226	GPG_ERR_NO_CERT_CHAIN		No certificate chain
+227	GPG_ERR_CERT_TOO_LARGE		Certificate is too large
+228	GPG_ERR_INV_RECORD		Invalid record
+229	GPG_ERR_BAD_MAC			The MAC does not verify
+230	GPG_ERR_UNEXPECTED_MSG		Unexpected message
+231	GPG_ERR_COMPR_FAILED		Compression or decompression failed
+232	GPG_ERR_WOULD_WRAP		A counter would wrap
+233	GPG_ERR_FATAL_ALERT		Fatal alert message received
+234	GPG_ERR_NO_CIPHER		No cipher algorithm
+235	GPG_ERR_MISSING_CLIENT_CERT	Missing client certificate
+236	GPG_ERR_CLOSE_NOTIFY		Close notification received
+237	GPG_ERR_TICKET_EXPIRED		Ticket expired
+238	GPG_ERR_BAD_TICKET		Bad ticket
+239	GPG_ERR_UNKNOWN_IDENTITY	Unknown identity
+240	GPG_ERR_BAD_HS_CERT		Bad certificate message in handshake
+241	GPG_ERR_BAD_HS_CERT_REQ		Bad certificate request message in handshake
+242	GPG_ERR_BAD_HS_CERT_VER		Bad certificate verify message in handshake
+243	GPG_ERR_BAD_HS_CHANGE_CIPHER	Bad change cipher messsage in handshake
+244	GPG_ERR_BAD_HS_CLIENT_HELLO	Bad client hello message in handshake
+245	GPG_ERR_BAD_HS_SERVER_HELLO	Bad server hello message in handshake
+246	GPG_ERR_BAD_HS_SERVER_HELLO_DONE	Bad server hello done message in hanshake
+247	GPG_ERR_BAD_HS_FINISHED		Bad finished message in handshake
+248	GPG_ERR_BAD_HS_SERVER_KEX	Bad server key exchange message in handshake
+249	GPG_ERR_BAD_HS_CLIENT_KEX	Bad client key exchange message in handshake
+250	GPG_ERR_BOGUS_STRING		Bogus string
+251	GPG_ERR_FORBIDDEN		Forbidden
+252	GPG_ERR_KEY_DISABLED		Key disabled
+253	GPG_ERR_KEY_ON_CARD		Not possible with a card based key
+254	GPG_ERR_INV_LOCK_OBJ		Invalid lock object
+
+# 255 and 256 are RFU.
 
 # Error codes pertaining to the Assuan IPC interface
 257	GPG_ERR_ASS_GENERAL		General IPC error
@@ -263,14 +309,115 @@
 277	GPG_ERR_ASS_CANCELED		IPC call has been cancelled
 278	GPG_ERR_ASS_NO_INPUT		No input source for IPC
 279	GPG_ERR_ASS_NO_OUTPUT		No output source for IPC
-280	GPG_ERR_ASS_PARAMETER		IPC parameter error 
+280	GPG_ERR_ASS_PARAMETER		IPC parameter error
 281	GPG_ERR_ASS_UNKNOWN_INQUIRE	Unknown IPC inquire
 
 # 282 to 299 are reserved for future assuan codes.
 
-# 300 to 1023 are free to be used.
+# 300 to 720 are free to be used.
 
-# For free use by non-GnuPG components.
+#
+# Mapping of LDAP error codes
+#
+# The numbers reflect the OpenLDAP code with an offset of 768.
+# Some error names are shortened
+#
+721	GPG_ERR_LDAP_GENERAL		General LDAP error
+722	GPG_ERR_LDAP_ATTR_GENERAL	General LDAP attribute error
+723	GPG_ERR_LDAP_NAME_GENERAL	General LDAP name error
+724	GPG_ERR_LDAP_SECURITY_GENERAL	General LDAP security error
+725	GPG_ERR_LDAP_SERVICE_GENERAL	General LDAP service error
+726	GPG_ERR_LDAP_UPDATE_GENERAL	General LDAP update error
+727	GPG_ERR_LDAP_E_GENERAL		Experimental LDAP error code
+728	GPG_ERR_LDAP_X_GENERAL		Private LDAP error code
+729	GPG_ERR_LDAP_OTHER_GENERAL	Other general LDAP error
+# 730 to 749 not used
+750	GPG_ERR_LDAP_X_CONNECTING	LDAP connecting failed (X)
+751	GPG_ERR_LDAP_REFERRAL_LIMIT	LDAP referral limit exceeded
+752	GPG_ERR_LDAP_CLIENT_LOOP	LDAP client loop
+# 753 is an obsolete error code
+754	GPG_ERR_LDAP_NO_RESULTS		No LDAP results returned
+755	GPG_ERR_LDAP_CONTROL_NOT_FOUND	LDAP control not found
+756	GPG_ERR_LDAP_NOT_SUPPORTED	Not supported by LDAP
+757	GPG_ERR_LDAP_CONNECT		LDAP connect error
+758	GPG_ERR_LDAP_NO_MEMORY		Out of memory in LDAP
+759	GPG_ERR_LDAP_PARAM		Bad parameter to an LDAP routine
+760	GPG_ERR_LDAP_USER_CANCELLED	User cancelled LDAP operation
+761	GPG_ERR_LDAP_FILTER		Bad LDAP search filter
+762	GPG_ERR_LDAP_AUTH_UNKNOWN	Unknown LDAP authentication method
+763	GPG_ERR_LDAP_TIMEOUT		Timeout in LDAP
+764	GPG_ERR_LDAP_DECODING		LDAP decoding error
+765	GPG_ERR_LDAP_ENCODING		LDAP encoding error
+766	GPG_ERR_LDAP_LOCAL		LDAP local error
+767	GPG_ERR_LDAP_SERVER_DOWN	Cannot contact LDAP server
+768	GPG_ERR_LDAP_SUCCESS		LDAP success
+769	GPG_ERR_LDAP_OPERATIONS		LDAP operations error
+770	GPG_ERR_LDAP_PROTOCOL		LDAP protocol error
+771	GPG_ERR_LDAP_TIMELIMIT		Time limit exceeded in LDAP
+772	GPG_ERR_LDAP_SIZELIMIT		Size limit exceeded in LDAP
+773	GPG_ERR_LDAP_COMPARE_FALSE	LDAP compare false
+774	GPG_ERR_LDAP_COMPARE_TRUE	LDAP compare true
+775	GPG_ERR_LDAP_UNSUPPORTED_AUTH	LDAP authentication method not supported
+776	GPG_ERR_LDAP_STRONG_AUTH_RQRD	Strong(er) LDAP authentication required
+777	GPG_ERR_LDAP_PARTIAL_RESULTS	Partial LDAP results+referral received
+778	GPG_ERR_LDAP_REFERRAL		LDAP referral
+779	GPG_ERR_LDAP_ADMINLIMIT		Administrative LDAP limit exceeded
+780	GPG_ERR_LDAP_UNAVAIL_CRIT_EXTN	Critical LDAP extension is unavailable
+781	GPG_ERR_LDAP_CONFIDENT_RQRD	Confidentiality required by LDAP
+782	GPG_ERR_LDAP_SASL_BIND_INPROG	LDAP SASL bind in progress
+# 783 not used
+784	GPG_ERR_LDAP_NO_SUCH_ATTRIBUTE	No such LDAP attribute
+785	GPG_ERR_LDAP_UNDEFINED_TYPE	Undefined LDAP attribute type
+786	GPG_ERR_LDAP_BAD_MATCHING	Inappropriate matching in LDAP
+787	GPG_ERR_LDAP_CONST_VIOLATION	Constraint violation in LDAP
+788	GPG_ERR_LDAP_TYPE_VALUE_EXISTS	LDAP type or value exists
+789	GPG_ERR_LDAP_INV_SYNTAX		Invalid syntax in LDAP
+# 790 to 799 not used
+800	GPG_ERR_LDAP_NO_SUCH_OBJ	No such LDAP object
+801	GPG_ERR_LDAP_ALIAS_PROBLEM	LDAP alias problem
+802	GPG_ERR_LDAP_INV_DN_SYNTAX	Invalid DN syntax in LDAP
+803	GPG_ERR_LDAP_IS_LEAF		LDAP entry is a leaf
+804	GPG_ERR_LDAP_ALIAS_DEREF	LDAP alias dereferencing problem
+# 805 to 814 not used
+815	GPG_ERR_LDAP_X_PROXY_AUTH_FAIL	LDAP proxy authorization failure (X)
+816	GPG_ERR_LDAP_BAD_AUTH		Inappropriate LDAP authentication
+817	GPG_ERR_LDAP_INV_CREDENTIALS	Invalid LDAP credentials
+818	GPG_ERR_LDAP_INSUFFICIENT_ACC	Insufficient access for LDAP
+819	GPG_ERR_LDAP_BUSY		LDAP server is busy
+820	GPG_ERR_LDAP_UNAVAILABLE	LDAP server is unavailable
+821	GPG_ERR_LDAP_UNWILL_TO_PERFORM	LDAP server is unwilling to perform
+822	GPG_ERR_LDAP_LOOP_DETECT	Loop detected by LDAP
+# 823 to 831 not used
+832	GPG_ERR_LDAP_NAMING_VIOLATION	LDAP naming violation
+833	GPG_ERR_LDAP_OBJ_CLS_VIOLATION	LDAP object class violation
+834	GPG_ERR_LDAP_NOT_ALLOW_NONLEAF	LDAP operation not allowed on non-leaf
+835	GPG_ERR_LDAP_NOT_ALLOW_ON_RDN	LDAP operation not allowed on RDN
+836	GPG_ERR_LDAP_ALREADY_EXISTS	Already exists (LDAP)
+837	GPG_ERR_LDAP_NO_OBJ_CLASS_MODS	Cannot modify LDAP object class
+838	GPG_ERR_LDAP_RESULTS_TOO_LARGE	LDAP results too large
+839	GPG_ERR_LDAP_AFFECTS_MULT_DSAS	LDAP operation affects multiple DSAs
+# 840 to 843 not used
+844	GPG_ERR_LDAP_VLV		Virtual LDAP list view error
+# 845 to 847 not used
+848	GPG_ERR_LDAP_OTHER		Other LDAP error
+# 849 to 880 not used
+881	GPG_ERR_LDAP_CUP_RESOURCE_LIMIT	Resources exhausted in LCUP
+882	GPG_ERR_LDAP_CUP_SEC_VIOLATION	Security violation in LCUP
+883	GPG_ERR_LDAP_CUP_INV_DATA	Invalid data in LCUP
+884	GPG_ERR_LDAP_CUP_UNSUP_SCHEME	Unsupported scheme in LCUP
+885	GPG_ERR_LDAP_CUP_RELOAD		Reload required in LCUP
+886	GPG_ERR_LDAP_CANCELLED		LDAP cancelled
+887	GPG_ERR_LDAP_NO_SUCH_OPERATION	No LDAP operation to cancel
+888	GPG_ERR_LDAP_TOO_LATE		Too late to cancel LDAP
+889	GPG_ERR_LDAP_CANNOT_CANCEL	Cannot cancel LDAP
+890	GPG_ERR_LDAP_ASSERTION_FAILED	LDAP assertion failed
+891	GPG_ERR_LDAP_PROX_AUTH_DENIED	Proxied authorization denied by LDAP
+
+# 892 to 950 are reserved for future LDAP codes.
+
+# 951 to 1023 are free to be used.
+
+# For free use by non-GnuPG components:
 1024	GPG_ERR_USER_1			User defined error code 1
 1025	GPG_ERR_USER_2			User defined error code 2
 1026	GPG_ERR_USER_3			User defined error code 3
