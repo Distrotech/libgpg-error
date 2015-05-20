@@ -78,7 +78,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = m4
-DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am
+DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am ChangeLog
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/autobuild.m4 \
 	$(top_srcdir)/m4/estream.m4 $(top_srcdir)/m4/gettext.m4 \
